@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Student Management System</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="/">Student Management System</a>
+            <button class="navbar-toggler" style="background-color: #ffffff;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end nav-pills" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-light"  th:href="@{/students}">Student Management</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+
+        <div class="container">
+            <div class="row">
+                <h1>List Students</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <a th:href = "@{/students/new}" class="btn btn-primary">Add Student</a>
+                </div>
+                <div class="col-lg-3 position-absolute end-0" >
+                    <a th:href = "@{/api/v1/students}" class="btn btn-info">To JSON</a>
+                </div>
+            </div>
+            <br>
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="">
+                    <th>Student First Name</th>
+                    <th>Student Last Name</th>
+                    <th>Student Email</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr th:each = "student: ${students}">
+                        <td th:text = "${student.firstName}"></td>
+                        <td th:text = "${student.lastName}"></td>
+                        <td th:text = "${student.email}"></td>
+                        <td>
+                            <a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn btn-primary">Update</a>
+                            <a th:href="@{/students/delete/{id}(id=${student.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle" viewBox="0 0 16 16">
+                <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"/>
+            </svg>
+            2022 Copyright:
+            <a class="text-reset fw-bold" href="https://github.com/rayin19">rayin19</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
