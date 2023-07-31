@@ -1,7 +1,9 @@
 # Student Management System
 
 ## Description
-The Student Management System is a comprehensive application that provides both a user interface (UI) and REST API functionality. It offers a range of features for managing student data efficiently.
+The Student Management System is a comprehensive application that is used to maintain and manage students’ records. <br/>
+It significantly improves user experience by providing a user-friendly UI for easy interaction, as well as the flexibility to integrate with
+REST Services for efficient data management and accessibility.
 
 ## Current Features
 - View All Students: Allows users to see a list of all the students currently registered in the system.
